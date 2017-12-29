@@ -7,6 +7,7 @@ In diesem Kapitel sollen einige Grundlagen erklärt werden. Zunächst wird erkl�
 \subsection{Spring}
 
 Bei Spring handelt es sich um ein plattformunabhängiges Framework, welches unter der Apache-Lizenz von  SpringSource \footcite{https://spring.io/} veröffentlicht wurde. Da Spring selber in Java geschrieben ist, ist es zu Groovy kompatible. Mithilfe von Spring soll das entwickeln von Java/J2EE Anwendungen vereinfacht werden, zudem soll die Entwicklung auch Produktiver vonstatten gehen \cite[Seite 1]{johnson2005}. 
+
 Spring ermöglicht es, dass Anwendungen für viele verschiedene Zwecke geschrieben werden. So ist es möglich Anwendungen sowohl für Applets zu Entwickeln, als auch für standalone Clients. Das half Spring dabei sich gegenüber der Konkurrenz zu behaupten. Spring ist eines der meist genutzten leichtgewichtigen Frameworks. 
 Einige Merkmale von Spring sind \cite[Seite 5]{johnson2005}:
 
@@ -24,17 +25,22 @@ Einige Merkmale von Spring sind \cite[Seite 5]{johnson2005}:
 
 Mit Version 4.0 unterstützt Spring auch die Anforderung JSR-356 \cite[Seite 14]{iuliana2017}. JSR-356 ist die Java Spezifikation für Websockets\footnote{https://www.jcp.org/en/jsr/all}. Websockets werden in \ref{websocket} näher erläutert.
 
+% --TODO-- Spring Boot  ???
+
 \subsection{Websockets}\label{websocket}
 
 Websockets erlauben eine Full-Duplex single-socket Verbindung. Zwischen dieser Verbindung können Nachrichten zwischen einem Server und einem Client ausgetauscht werden. 
+
 Ursprünglich musste z. B. ein Client bei einem Server polling betreiben, das heißt immer wieder bei einem Server nachfragen, ob relevante Informationen für den Client vorhanden sind. Ein Websocket stellt eine Bidirektionale Verbindung her, welches das polling nicht mehr notwendig macht \cite[Seite 751f]{iuliana2017}. Daten können zwischen dem Client und dem Server gleichzeitig hin und her geschickt werden. Eine Websocket Verbindung zwischen Client und Server ist persistent \cite{malte2017}. 
 
 \subsection{Groovy}
 
 Groovy ist eine Programmiersprache unter der Apache-Lizenz \cite{groovy2017}.
 Es wurde für die Java Plattform entwickelt, um die Entwicklung von Anwendungen zu beschleunigen. Zudem war eines der Ziele, dass die Syntax vertraut ist und einfach zu lernen. Zudem sit es mit anderen Java Programmen Kompatibel. 
+
 Grooy ist sowohl eine kompilierte, als auch eine Interpretierte Programmiersprache. 
 Listing \ref{listingGb} zeigt ein einfaches Beispiel eines Groovy Programms. Es wird eine einfache Klasse angelegt mit verschiedene Attribute. Dabei ist zu sehen, dass nicht zwingend der Konkrete Datentyp angegeben werden muss. Es besteht die Möglichkeit den Datentyp mit \textit{def} anzugeben, so dass der Datentyp des Attributes automatisch ermittelt wird, je nachdem was das Attribute für einen Wert zugewiesen bekommt. 
+
 In der Groovy Dokumentation \cite{groovylang2017} ist die Sprache Groovy beschrieben.
 
 \begin{lstlisting}[language=Groovy,caption={Eine einfache Groovy Klasse}, label=listingGb]
@@ -56,18 +62,28 @@ def person = new Person()
 person.printName()
 \end{lstlisting}
 
+\subsection{Groovy and Grails}
+
+Grails ist eine Groovy basierte Webtechnologie, welche auf die \ac{JVM} läuft. Grails setzt dabei auf Spring auf \cite{grails2017}. Grails erlaubt das erstellen von Web Anwendungen innerhalb kürzester Zeit. Zudem unterstützt Grails Scaffolding, was das Generieren von CRUD Pages ermöglicht. Grails basiert zudem auf das \textit{convention over configuration} Prinzip. 
+
+Grails nutzt das JavaEE als Grundlage für die Architektur und Spring für die Strukturierung der Anwendung via \textit{dependency injection}. Zudem nutzt Grails Gradle \cite{grailsVogella2017}.
+
+--TODO--
+
+\subsection{Sock}
 
 
-\subsection{Groovy on Grails}
+\subsection{Stomp}
 
-Hier soll erklärt werden, dass Goovy ist ( mit bezug zu java) und was Groovy on Grails ist.
 
-\section{Annotationen}
+\section{Websocket mit Grails}
+
+In diesem Kapitel gibt es ein Überblick über die Implementierung eines Websockets mit Grails. Zunächst werden die relevanten Annotationen eingeführt.  
+
+--TODO--
+
+\subsection{Annotationen}
 
 Hier sollen die Annotationen, die beim Websocket genutzt werden, erklärt werden.
 
-\section{Implementierung}
-
-Hier soll erklärt werden, was genau getan werden muss, um es zu nutzen.
-
-
+\subsection{Implementation}
