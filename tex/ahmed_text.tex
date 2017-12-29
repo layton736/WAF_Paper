@@ -1,30 +1,66 @@
-\section{Einleitung}
-
-Hier wird es eine Einleitung zum Thema geben. 
-
-\section{Forschungsmethode}
-
-Hier wird beschrieben, wie genau vorgegangen bei der literatur suche des Papers
-
-\section{State of the art}
-
-Hier wird der Aktuelle Stand aufgezeigt
 
 \section{Grundlagen}
 
-Hier sollen Grundlagen geklärt werden
+--TODO--\\
+In diesem Kapitel sollen einige Grundlagen erklärt werden. Zunächst wird erklärt, was genau Websockets sind, Dann wird auf die Technologie Groovy on Grails näher eingegangen. Anschließend wird das Spring Framework beleuchtet.
 
-\subsection{Websockets}
+\subsection{Spring}
 
-Eine allgemeine Erklärung was Websockets sind
+Bei Spring handelt es sich um ein plattformunabhängiges Framework, welches unter der Apache-Lizenz von  SpringSource \footcite{https://spring.io/} veröffentlicht wurde. Da Spring selber in Java geschrieben ist, ist es zu Groovy kompatible. Mithilfe von Spring soll das entwickeln von Java/J2EE Anwendungen vereinfacht werden, zudem soll die Entwicklung auch Produktiver vonstatten gehen \cite[Seite 1]{johnson2005}. 
+Spring ermöglicht es, dass Anwendungen für viele verschiedene Zwecke geschrieben werden. So ist es möglich Anwendungen sowohl für Applets zu Entwickeln, als auch für standalone Clients. Das half Spring dabei sich gegenüber der Konkurrenz zu behaupten. Spring ist eines der meist genutzten leichtgewichtigen Frameworks. 
+Einige Merkmale von Spring sind \cite[Seite 5]{johnson2005}:
+
+\begin{itemize}
+\item Inversion of Control:\\ Der core Container von Spring bietet Konfigurationsmanagement für Plain Old Java Objects (POJO). POJOs sind einfache Java Objekte, die möglichst wenig externe Abhängigkeiten haben. 
+\\
+\item Aspektorientierte Programmierung:\\ Spring bietet für die Aspektorientierte Programmierung wichtige out-of-the-box Service an, wie z. B. deklaratives Transaktionsmanagement.
+\\
+\item Transaktionsmanagement:\\ Spring bietet eine Abstraktion von einer Transaktion, welches auf \ac{JTA} aufsetzt.
+\\
+\item MVC Web Framework:\\ Spring bietet ein flexibles Request basiertes MVC Web Framework. 
+\\
+\item Leichtgewichtiger Fernzugriff:\\ Spring bietet Unterstützung für POJO basierte Fernzugriffe mithilfe von Protokollen, wie RMI, IIOP, Hessian oder anderen Webservice Protokolle.
+\end{itemize}
+
+Mit Version 4.0 unterstützt Spring auch die Anforderung JSR-356 \cite[Seite 14]{iuliana2017}. JSR-356 ist die Java Spezifikation für Websockets\footnote{https://www.jcp.org/en/jsr/all}. Websockets werden in \ref{websocket} näher erläutert.
+
+\subsection{Websockets}\label{websocket}
+
+Websockets erlauben eine Full-Duplex single-socket Verbindung. Zwischen dieser Verbindung können Nachrichten zwischen einem Server und einem Client ausgetauscht werden. 
+Ursprünglich musste z. B. ein Client bei einem Server polling betreiben, das heißt immer wieder bei einem Server nachfragen, ob relevante Informationen für den Client vorhanden sind. Ein Websocket stellt eine Bidirektionale Verbindung her, welches das polling nicht mehr notwendig macht \cite[Seite 751f]{iuliana2017}. Daten können zwischen dem Client und dem Server gleichzeitig hin und her geschickt werden. Eine Websocket Verbindung zwischen Client und Server ist persistent \cite{malte2017}. 
+
+\subsection{Groovy}
+
+Groovy ist eine Programmiersprache unter der Apache-Lizenz \cite{groovy2017}.
+Es wurde für die Java Plattform entwickelt, um die Entwicklung von Anwendungen zu beschleunigen. Zudem war eines der Ziele, dass die Syntax vertraut ist und einfach zu lernen. Zudem sit es mit anderen Java Programmen Kompatibel. 
+Grooy ist sowohl eine kompilierte, als auch eine Interpretierte Programmiersprache. 
+Listing \ref{listingGb} zeigt ein einfaches Beispiel eines Groovy Programms. Es wird eine einfache Klasse angelegt mit verschiedene Attribute. Dabei ist zu sehen, dass nicht zwingend der Konkrete Datentyp angegeben werden muss. Es besteht die Möglichkeit den Datentyp mit \textit{def} anzugeben, so dass der Datentyp des Attributes automatisch ermittelt wird, je nachdem was das Attribute für einen Wert zugewiesen bekommt. 
+In der Groovy Dokumentation \cite{groovylang2017} ist die Sprache Groovy beschrieben.
+
+\begin{lstlisting}[language=Groovy,caption={Eine einfache Groovy Klasse}, label=listingGb]
+class Person{ 
+	
+	def vorname = 'Max'
+	String name = 'Mustermann'
+	int alter = 42
+	
+	def printName(){
+
+		println vorname
+		
+	}
+}
+
+def person = new Person()
+
+person.printName()
+\end{lstlisting}
+
+
 
 \subsection{Groovy on Grails}
 
 Hier soll erklärt werden, dass Goovy ist ( mit bezug zu java) und was Groovy on Grails ist.
-
-\subsection{Spring}
-
-Hier soll es eine kurze erklärung geben, was Spring genau ist und wozu es genutzt wird. 
 
 \section{Annotationen}
 
@@ -35,4 +71,3 @@ Hier sollen die Annotationen, die beim Websocket genutzt werden, erklärt werden
 Hier soll erklärt werden, was genau getan werden muss, um es zu nutzen.
 
 
-\section{Fazit}
