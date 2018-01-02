@@ -83,10 +83,15 @@ Bei Stomp handelt es sich um ein einfaches Textorientiertes Nachrichten Protokol
 
 \section{Websocket mit Grails}
 
-In diesem Kapitel gibt es ein Überblick über die Implementierung eines Websockets mit Grails. Zunächst werden die relevanten Annotationen eingeführt. 
+In diesem Kapitel gibt es ein Überblick über die Implementierung eines Websockets mit Grails. Zunächst werden die relevanten Annotationen eingeführt. Anschließend wird erklärt, wie der HTML Code des Clients aussehen kann. Darauf aufbauend wird dann der Quellcode des Servers erklärt. 
+
 --TODO--
 
-\subsection{Annotationen}
+Um in Grails über Websockets zu kommunizieren, muss folgende Zeile in build.gradle unter den \textit{Depenencies} eingefügt werden\footnote{https://plugins.grails.org/plugin/zyro/grails-spring-websocket}.\\
+\textit{compile 'org.grails.plugins:grails-spring-websocket:2.3.0'}\\
+\\
+
+\subsection{Annotationen}\label{ankapitel}
 
 Da bei der Websocket Programmierung in Grails, die Bibliothek Spring \ref{spring} genutzt wird, wird auch von dessen Annotationen starken Gebrauch gemacht. Folgend werden die wichtigsten Annotationen, die für die Websocket Programmierung mit Grails benötigt werden, aufgelistet und erklärt \cite{spring2017}
 
@@ -95,7 +100,7 @@ Da bei der Websocket Programmierung in Grails, die Bibliothek Spring \ref{spring
 	Diese Annotation zeichnet eine Klasse als Controller aus. In Grails ist diese Angabe Optional.
 	
 	\item @MessageMapping:\\
-	Diese Annotation ruft die annotierte Methode auf, wenn eine Nachricht zur angegebenen stelle versendet wird. In Listing \ref{messagmap} wird die Methode \textit{sendMessage} dann aufgerufen, wenn eine Nachricht an \textit{/destination} gesendet wird. 
+	Diese Annotation ruft die annotierte Methode auf, wenn eine Nachricht zur angegebenen Stelle versendet wird. In Listing \ref{messagmap} wird die Methode \textit{sendMessage} dann aufgerufen, wenn eine Nachricht an \textit{/destination} gesendet wird. 
 	   
 	\item @SendTo:\\
 	Diese Annotation sorgt dafür, dass alle Clients, welche die angegebene Stelle 	abonniert haben, den Wert, denn die Methode \textit{getGreeting} zurück gibt, auch erhalten. In Listing \ref{sendto} werden alle Clients die Nachricht \textit{Hallo user} erhalten, wenn sie \textit{/topic/destination} abonniert haben. 
@@ -138,7 +143,7 @@ import org.springframework.stereotype.Controller
 class ExampleController { }
 \end{lstlisting}
 
-\subsection{Quellcode des Clients}
+\subsection{Quellcode des Clients}\label{clientKapitel}
 
 Damit der Client über den Websocket mit dem Server Kommunizieren kann, benötigt dieser ein Objekt vom Typ SockJS, dass als Socket dient, über dass Kommuniziert wird. Zudem ist auch das Protokoll Stomp notwendig. In Listing \ref{listingClient} ist der Code eines \ac{GSP} Dokuments zu sehen. Hier wird mithilfe der Grails Methode createLink\footnote{http://docs.grails.org/3.2.3/ref/Tags/createLink.html} eine \ac{URI} generiert, auf.
 Mithilfe des Sockets wird ein Stomp Objekt generiert. Anschließend wird mit der Methode connect\footnote{https://stomp-js.github.io/stomp-websocket/codo/class/Client.html\# connect-dynamic} der Client einen Asynchronen Aufruf tätigen. In dieser wird festgelegt, was der Client abonniert, in diesem Fall \textit{/topic/hello}. 
@@ -183,12 +188,11 @@ Die dargestellte Seite stellt dem Nutzer nur einen Button zur Verfügung, welche
 
 \end{lstlisting}
 
-\subsection{Implementation}
+\subsection{Quellcode des Servers}
 
-Um in Grails über Websockets zu kommunizieren, muss folgende Zeile in build.gradle unter den \textit{Depenencies} eingefügt werden\footnote{https://plugins.grails.org/plugin/zyro/grails-spring-websocket}.\\
+Der Quellcode auf der Server Seite ist sehr simple. Für ein einfach Beispiel reichen die Annotationen aus dem Kapitel \ref{ankapitel}. In diesem Beispiel Quellcode wird die Methode \textit{Message} dann aufgerufen, wenn eine Nachricht an \textit{/hello} erfolgt. Anschließend wird die Methode ausgeführt, bis sie dann alle Abonnenten den Wert übermittelt, denn diese Methode liefert. 
+In diesem Quellode wird mit dem drücken des Buttons aus \ref{clientKapitel} dafür gesorgt, dass eine Nachricht sowohl versendet, als auch empfangen wird.
 
-\textit{compile 'org.grails.plugins:grails-spring-websocket:2.3.0'}\\
-\\
 \begin{lstlisting}[language=Groovy,caption={Beispiel der Controller Klasse}, label=listingexampleControllerClass]
 
 import org.springframework.messaging.handler.annotation.MessageMapping
@@ -198,10 +202,9 @@ class ExampleController {
 	
 	@MessageMapping("/hello")
 	@SendTo("/topic/hello")
-	protected String hello(String world) {
-		return "hello from controller, ${world}!"
-	}
-	
+	protected String Message(String message) {
+		return "${message}"
+	}	
 }
 \end{lstlisting}
 
