@@ -85,15 +85,13 @@ Bei Stomp handelt es sich um ein einfaches Textorientiertes Nachrichten Protokol
 
 In diesem Kapitel gibt es ein Überblick über die Implementierung eines Websockets mit Grails. Zunächst werden die relevanten Annotationen eingeführt. Anschließend wird erklärt, wie der HTML Code des Clients aussehen kann. Darauf aufbauend wird dann der Quellcode des Servers erklärt. 
 
---TODO--
-
 Um in Grails über Websockets zu kommunizieren, muss folgende Zeile in build.gradle unter den \textit{Depenencies} eingefügt werden\footnote{https://plugins.grails.org/plugin/zyro/grails-spring-websocket}.\\
 \textit{compile 'org.grails.plugins:grails-spring-websocket:2.3.0'}\\
 \\
 
 \subsection{Annotationen}\label{ankapitel}
 
-Da bei der Websocket Programmierung in Grails, die Bibliothek Spring \ref{spring} genutzt wird, wird auch von dessen Annotationen starken Gebrauch gemacht. Folgend werden die wichtigsten Annotationen, die für die Websocket Programmierung mit Grails benötigt werden, aufgelistet und erklärt \cite{spring2017}
+Da bei der Websocket Programmierung in Grails, die Bibliothek Spring [Abschnitt \ref{spring}] genutzt wird, wird auch von dessen Annotationen starken Gebrauch gemacht. Folgend werden die wichtigsten Annotationen, die für die Websocket Programmierung mit Grails benötigt werden, aufgelistet und erklärt \cite{spring2017}
 
 \begin{itemize}
 	\item @Controller:\\	

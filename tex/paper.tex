@@ -13,18 +13,18 @@
 
 % Kurze Zusammenfassung des Dokuments
 \begin{abstract}
-Dieses Paper soll aufzeigen, wie Websockets mit Grails realisiert werden kann. Zunächst wird auf einige Grundlagen näher eingegangen, um dem Leser ein Besseres Verständnis für das Thema zu vermitteln. 
+Dieses Paper soll aufzeigen, wie Websockets mit Grails realisiert werden kann. Zunächst wird auf einige Grundlagen näher eingegangen, um dem Leser ein Besseres Verständnis für das Thema zu vermitteln. So wird z. B. auf das Framework Spring näher eingegangen. Anschließend wird Anhand eines Beispiels erklärt, wie Websockets Implementiert werden können. Dazu werden auch auf die benötigten Annotationen näher eingegangen. 
 
---TODO--
+
 \end{abstract}
 
 \tableofcontents
 
 \section{Einleitung}
  
-WebSockets \ref{websocket} sind eine langlebige, interaktive, Zwei-Wege-Kanal Kommunikation zwischen einem Client-Browser und End-Server, die kontinuierliche Kommunikation ohne Abfragen ermöglichen. WebSockets sind schon seit einigen Jahren da, seit sie von RFC 6455 vorgeschlagen wurden und so ziemlich alle großen Browser haben seitdem Unterstützung gewonnen. 
+WebSockets [Abschnitt \ref{websocket}] sind eine langlebige, interaktive, Zwei-Wege-Kanal Kommunikation zwischen einem Client-Browser und End-Server, die kontinuierliche Kommunikation ohne Abfragen ermöglichen. WebSockets sind schon seit einigen Jahren da, seit sie von RFC 6455 vorgeschlagen wurden und so ziemlich alle großen Browser haben seitdem Unterstützung gewonnen. 
 
-Spring \ref{spring}, das Java-MVC-Framework, erhielt die integrierte WebSocket-Unterstützung in Version 4.0, und diese Unterstützung wurde seitdem in Spring Boot und Grails integriert (Grails-Unterstützung wird von diesem hilfreichen Plugin bereitgestellt). Dieser Artikel gibt einen Überblick über einige Beispiele, um sich mit WebSockets vertraut zu machen und gleichzeitig etwas über dessen Integration in Grails zu lernen, als Grails Version 3.0 erreichte.
+Spring [Abschnitt \ref{spring}], das Java-MVC-Framework, erhielt die integrierte WebSocket-Unterstützung in Version 4.0, und diese Unterstützung wurde seitdem in Spring Boot und Grails integriert (Grails-Unterstützung wird von diesem hilfreichen Plugin bereitgestellt). Dieser Artikel gibt einen Überblick über einige Beispiele, um sich mit WebSockets vertraut zu machen und gleichzeitig etwas über dessen Integration in Grails zu lernen, als Grails Version 3.0 erreichte.
  
 \section{Forschungsmethode}
 
@@ -129,16 +129,16 @@ Als nächstes benötigen wir eine HTML / Javascript-Seite mit der entsprechenden
 \end{lstlisting}
 
 Das ist alles was benötigt wird, um eine WebSocket-Kommunikation zwischen Server und Client einzurichten. Es ist ein einfaches Beispiel und es fehlen Funktionen wie Filter für Benutzergruppen oder Sicherheit, aber es gibt eine Idee, sich mit WebSockets vertraut zu machen.
-Was sind die Nachteile?
 
-WebSocket ist eine Browserfunktion und nicht alle Browser unterstützen diese Funktion. Wahrscheinlich werden in naher Zukunft alle Browser und Server WebSockets unterstützen.
-CanIUse bietet einen guten Überblick über die unterstützten Webbrowser.
+Was sind die Nachteile? WebSocket ist eine Browserfunktion und nicht alle Browser unterstützen diese Funktion. Wahrscheinlich werden in naher Zukunft alle Browser und Server WebSockets unterstützen. CanIUse bietet einen guten Überblick über die unterstützten Webbrowser.
 
 \input{ahmed_text}
 
 \input{ida_text}
 
 \section{Fazit}
+
+Die Implementierung von Websockets in Grails ist nicht sehr aufwendig. Da das Framework Spring einiges an Arbeit abnimmt, wird das Einsetzen eines Websockets mithilfe von Grails für den Entwickler stark vereinfacht. 
 
 %--------------------------
 
